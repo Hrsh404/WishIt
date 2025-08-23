@@ -15,9 +15,9 @@ export class HeaderComponent {
 
   //Seach icon starts from here
 
-  onSearch(query: string) {
-    console.log('Searching for:', query);
-  //Seach icon ends from here
+  // onSearch(query: string) {
+  //   console.log('Searching for:', query);
+  // //Seach icon ends from here
 
-  }
+  // }
 }

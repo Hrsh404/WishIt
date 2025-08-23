@@ -42,74 +42,40 @@
 
 
 .tagline {
-        font-family: Georgia, Times, 'Times New Roman', serif;
-    font-size: 0.75rem;
-    color: #0c0909;
- 
-    margin-top: -4px;
-    opacity: 0.8;
-    margin-left: 50px;
+
+
+
+    font-size: .9rem; // adjust size
+    font-weight: 500;  // boldness
+    color: #333;       // text color
+
+
+  
+  position: relative;
+  opacity: 0;
+  animation: slideIn 1s ease-out forwards;
+  animation-delay: 0.6s; /* Optional: start after a slight delay */
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-150%);
+    opacity: 0;
   }
-
-
-.search-btn {
-  margin-left: 10px;
-  font-size: 18px;
-  padding: 5px 5px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-  border: none;
-  background-color: #999ca2;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.search-btn:hover {
-  box-shadow: 4px 4px 8px rgba(240, 236, 236, 0.4);
-}
-
-.search-input {
- width: 400px;   
-margin-left: 350px;
-  padding: 4px 10px; 
-  font-size: 16px;   
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  height: 30px;
-  box-sizing: border-box; 
-}
-
-
-.login-container {
-  display: flex;
-  flex-direction: column; /* stack icon and text vertically */
-  align-items: center;
-}
-
-.login-btn {
-margin-top: 7px;
-  margin-left: 300px;
-  font-size: 16px;
-  padding: 8px 8px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-  border: none;
-  background-color:#999ca2;
-  color: white;
-  border-radius: 50%;
-  cursor: pointer;
-
-  &:hover {
-    box-shadow: 4px 4px 8px rgba(240, 236, 236, 0.4);
+  to {
+    transform: translateX(25px);
+    opacity: 1;
   }
 }
 
-.login-text {
-  margin-left: 300px;
-  margin-top: 1px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-}
+
+
+
+
+
+
+
+
 
 
 @keyframes shine {
