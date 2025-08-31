@@ -5,12 +5,27 @@
   
 
 
- <div class="logo-container">
+ <div class="logo-container" routerLink="/home"  >
     <div class="logo">WishIt</div>
     <div class="tagline">A Clock-In Product</div>
   </div>
 
 
+
+
+<button 
+    *ngIf="router.url.startsWith('/home')" 
+    routerLink="/register" 
+    class="registerBtn">
+    Register
+  </button>
+
+  <button 
+    *ngIf="router.url.startsWith('/home')" 
+    routerLink="/login" 
+    class="loginBtn">
+   Login
+  </button>
 
 
 
