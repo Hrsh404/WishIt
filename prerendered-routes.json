@@ -1,8 +1,0 @@
-{
-  "routes": {
-    "/WishIt": {},
-    "/WishIt/home": {},
-    "/WishIt/login": {},
-    "/WishIt/register": {}
-  }
-}
