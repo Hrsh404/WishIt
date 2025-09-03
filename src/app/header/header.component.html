@@ -27,6 +27,13 @@
    Login
   </button>
 
+  <button 
+    *ngIf="router.url.startsWith('/home')" 
+    routerLink="/cart" 
+    class="loginBtn">
+    🛒
+  </button>
+
 
 
 <!-- <div class="login-container">
