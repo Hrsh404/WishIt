@@ -131,8 +131,23 @@ background-color: white;
 }
 
 
+.profileBtn{
+margin-left: 1400px;
+background-color: white;     
+  color: black;                
+  border: 1px solid #ccc;    
+  padding: 13px 21px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
 
-
+  &:hover {
+    background-color: #007bff; 
+    color: white;              
+    border-color: #007bff;
+  }  
+}
 
 
 
