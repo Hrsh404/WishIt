@@ -34,6 +34,24 @@
     🛒
   </button>
 
+  <button 
+  *ngIf="router.url.startsWith('/login')" 
+  routerLink="/profile"
+  class="profileBtn"
+  aria-label="Profile">
+  
+  <!-- Simple SVG profile silhouette -->
+  <svg xmlns="http://www.w3.org/2000/svg"
+       width="24" height="24" viewBox="0 0 24 24" role="img" aria-label="User profile">
+    <circle cx="12" cy="12" r="11" fill="#E6EEF8"/>
+    <g fill="#2B6CB0">
+      <circle cx="12" cy="9" r="3.25"/>
+      <path d="M4.5 19.5c0-3 3.75-5.25 7.5-5.25s7.5 2.25 7.5 5.25"/>
+    </g>
+  </svg>
+
+</button>
+
 
 
 <!-- <div class="login-container">
