@@ -5,13 +5,10 @@
   
 
 
- <div class="logo-container" routerLink="/home"  >
+<div class="logo-container" routerLink="/home"  >
     <div class="logo">WishIt</div>
     <div class="tagline">A Clock-In Product</div>
-  </div>
-
-
-
+</div>
 
 <button 
     *ngIf="router.url.startsWith('/home')" 
@@ -52,7 +49,19 @@
 
 </button>
 
-
+<div class="spacer">
+<button 
+  *ngIf="router.url.startsWith('/home')"
+  class="hamburger-btn"
+  (click)="toggleChange()"
+  [class.change]="isChanged"
+  title="Toggle menu"
+  aria-label="Toggle menu">
+  <span class="bar1"></span>
+  <span class="bar2"></span>
+  <span class="bar3"></span>
+</button>
+</div>
 
 <!-- <div class="login-container">
   <button class="login-btn">👤</button>
@@ -60,4 +69,11 @@
 </div> -->
   
 </header>
+
+<nav *ngIf="isChanged" class="side-menu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </nav>
 
