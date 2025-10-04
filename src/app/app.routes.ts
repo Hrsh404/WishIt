@@ -5,6 +5,9 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ProductList } from './product-list/product-list';
 import { Cart } from './header/cart/cart';
 import { ProfileComponent } from './profile/profile.component';
+import { Vendor } from './vendor/vendor';  
+
+
 
 export const routes: Routes = [
     {path:"", redirectTo:"home",pathMatch:'full'},
@@ -13,5 +16,10 @@ export const routes: Routes = [
     {path:'register', component:RegisterComponent},
     {path:'products', component:ProductList},
     {path:'cart', component:Cart},
-    {path:'profile', component:ProfileComponent}
+    {path:'profile', component:ProfileComponent},
+    {path:'vendor', component:Vendor}   
 ];
+
+
+
+export class AppRoutingModule {}

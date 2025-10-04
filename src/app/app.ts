@@ -13,3 +13,4 @@ import { Home } from './home/home.component';
 export class App {
   protected readonly title = signal('WishIt');
 }
+

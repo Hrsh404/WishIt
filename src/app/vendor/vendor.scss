@@ -1,0 +1,55 @@
+.vendor-page {
+  padding: 20px;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+}
+
+.images-container {
+  display: flex;
+  gap: 12px;
+}
+
+.img-box {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  border: 1px dashed #999;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.img-box input[type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fields {
+  margin-top: 16px;
+}
+
+.fields label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.fields input,
+.fields textarea {
+  width: 100%;
+  margin-bottom: 12px;
+}
