@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
 
 .metallic-header {
   width: 100%;
@@ -96,28 +96,53 @@ background-color: white;
   }  
 }
 
-
-
 .tagline {
-    font-size: .9rem; 
-    font-weight: 500;  
-    color: #333;     
+  font-family: 'Merriweather', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
   position: relative;
+  display: inline-block;
   opacity: 0;
-  animation: slideIn 1s ease-out forwards;
-  animation-delay: 0.6s; /* Optional: start after a slight delay */
+  transform: translateX(-250%) scale(0.8) skewX(-15deg);
+  animation: heroEntry 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+  letter-spacing: 1.5px;
+
+
 }
 
-@keyframes slideIn {
-  from {
-    transform: translateX(-150%);
+.white-part {
+  color: #eceaea;
+}
+
+.red-part {
+  color: #fa0606;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+}
+
+/* Hero Entrance Animation */
+@keyframes heroEntry {
+  0% {
     opacity: 0;
+    transform: translateX(-250%) scale(0.8) skewX(-15deg);
+ 
   }
-  to {
-    transform: translateX(25px);
+  50% {
+    opacity: 1;
+    transform: translateX(20px) scale(1.2) skewX(5deg);
+
+  }
+  70% {
+    transform: translateX(-10px) scale(1.1) skewX(0deg);
+  }
+  100% {
+    transform: translateX(0) scale(1) skewX(0deg);
     opacity: 1;
   }
 }
+
+
+
 
 
 .profileBtn{
