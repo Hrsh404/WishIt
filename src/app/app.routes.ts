@@ -7,6 +7,9 @@ import { Cart } from './header/cart/cart';
 import { ProfileComponent } from './profile/profile.component';
 import { Products } from './products/products';
 import { ProductList } from './products/product-list/product-list';
+import { Vendor } from './vendor/vendor';  
+
+
 
 export const routes: Routes = [
     {path:"", redirectTo:"home",pathMatch:'full'},
@@ -17,4 +20,9 @@ export const routes: Routes = [
     {path:'cart', component:Cart},
     {path:'profile', component:ProfileComponent},
     {path:'search', component:ProductList}
+    {path:'vendor', component:Vendor}   
 ];
+
+
+
+export class AppRoutingModule {}

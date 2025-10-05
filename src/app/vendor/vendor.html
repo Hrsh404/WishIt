@@ -1,0 +1,28 @@
+<p>vendor works!</p>
+<div class="vendor-page">
+  <h2>Vendor: Upload Products</h2>
+
+  <div *ngFor="let product of products; let i = index" class="product-card">
+    <div class="images-container">
+      <div *ngFor="let img of product.images; let j = index" class="img-box">
+        <input type="file" accept="image/*" (change)="onImageChange(i, j, $event)" placeholder="Upload product image" title="Product Image" />
+        <div class="preview" *ngIf="img">
+          <img [src]="getObjectURL(img)" alt="Product image" />
+        </div>
+      </div>
+    </div>
+
+    <div class="fields">
+      <label>Price:</label>
+      <input type="number" [(ngModel)]="product.price" placeholder="Enter product price" title="Product Price" />
+
+      <label>Description:</label>
+      <textarea rows="3" [(ngModel)]="product.description" ></textarea>
+    </div>
+
+    <button (click)="removeProduct(i)" *ngIf="products.length > 1">Remove Product</button>
+  </div>
+
+  <button (click)="addProduct()">Add Another Product</button>
+  <button (click)="upload()">Submit</button>
+</div>
