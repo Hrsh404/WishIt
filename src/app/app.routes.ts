@@ -2,9 +2,11 @@ import { Routes } from '@angular/router';
 import { Home } from './home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { ProductList } from './product-list/product-list';
+
 import { Cart } from './header/cart/cart';
 import { ProfileComponent } from './profile/profile.component';
+import { Products } from './products/products';
+import { ProductList } from './products/product-list/product-list';
 import { Vendor } from './vendor/vendor';  
 
 
@@ -14,9 +16,10 @@ export const routes: Routes = [
     {path:'home', component:Home},
     {path:'login', component:LoginComponent},
     {path:'register', component:RegisterComponent},
-    {path:'products', component:ProductList},
+    {path:'products', component:Products},
     {path:'cart', component:Cart},
     {path:'profile', component:ProfileComponent},
+    {path:'search', component:ProductList}
     {path:'vendor', component:Vendor}   
 ];
 
