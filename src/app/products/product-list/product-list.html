@@ -1,0 +1,21 @@
+<div 
+  class="search-results" 
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="500"
+  (scrolled)="onScroll()"
+  [scrollWindow]="false"
+>
+  <!-- Loop through items and show product cards -->
+  <div class="data-card" *ngFor="let img of items">
+    <img [src]="img" alt="Product" />
+    <div class="product-info">
+      <p class="mrp">MRP: ₹100</p>
+      <p class="our-price">Our Price: ₹80</p>
+      <button class="buy-btn">Buy Now</button>
+    </div>
+  </div>
+
+  <!-- Loading indicator -->
+  <div *ngIf="isLoading">Loading...</div>
+</div>
