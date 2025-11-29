@@ -4,21 +4,24 @@
 
 
 <header class="metallic-header">
-  
 
 
+<!-- Logo###### 29/11/25-->
 <div class="logo-container" routerLink="/home"  >
     <div class="logo">WishIt</div>
-    
-<div class="tagline">
-  A <span class="white-part">Clock-</span> <span class="red-part">In</span> Product
 </div>
+<!-- Logo###### 29/11/25-->
 
 
-</div>
+
+
+<!-- Headr buttons inside a container 29/11/25 -->
+
+<div class="header-buttons" > 
+
 
 <button *ngIf="router.url.startsWith('/home')" routerLink="/search" class="searchBtn">
-      🔍 Search The big DICK Energy
+      🔍 Search
     </button>
 
 <button 
@@ -73,17 +76,19 @@
   <span class="bar3"></span>
 </button>
 </div>
-
+</div>
 <!-- <div class="login-container">
   <button class="login-btn">👤</button>
   <span class="login-text">Login</span>
 </div> -->
   
-</header>
 
-<nav *ngIf="isChanged" class="side-menu">
+<nav *ngIf="isChanged" class="side-menu" aria-label="Main menu">
+  <ul>
     <li><a href="#">Home</a></li>
     <li><a href="#">About</a></li>
     <li><a href="#">Services</a></li>
     <li><a href="#">Contact</a></li>
-  </nav>
+  </ul>
+</nav>
+</header>
