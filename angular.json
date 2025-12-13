@@ -24,9 +24,12 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
-              }
-            ],
+                "input": "public",
+                "output": "/"
+          },
+  "src/assets"
+]
+,
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
@@ -81,11 +84,14 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+  {
+    "glob": "**/*",
+    "input": "public",
+    "output": "/"
+  },
+  "src/assets"
+]
+,
             "styles": [
               "src/styles.scss"
             ]
