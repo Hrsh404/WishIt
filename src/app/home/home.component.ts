@@ -1,15 +1,25 @@
-import { Component } from '@angular/core';
+import { Component,CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+
+import productData from '../../assets/products.json';
+
+
 
 @Component({
   selector: 'app-home',
   standalone:true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, ],
+   schemas: [CUSTOM_ELEMENTS_SCHEMA], 
   templateUrl: './home.component.html',
   styleUrl: './home.scss'
 })
-export class Home {
-  constructor(public router: Router) {}
+export class Home implements OnInit {
+   
 
+  products: any[] = [];
+
+  ngOnInit() {
+    this.products = productData.products;
+}
 }
