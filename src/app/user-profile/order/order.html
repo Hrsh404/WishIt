@@ -1,0 +1,56 @@
+<div class="orders-container">
+  <header>
+    <a routerLink="/your-account" class="back-link"></a>
+    <button onclick="history.back()" style="background:none;border:none;cursor:pointer;">
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-label="Back"
+  >
+    <path
+      d="M15 18L9 12L15 6"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</button>
+    <h1>Your Orders</h1>
+    
+  </header>
+
+
+
+  <div class="order-list">
+    <div class="order-card" *ngFor="let order of orders">
+      <div class="order-header">
+        <div class="info-group">
+          <span class="label">ORDER PLACED</span>
+          <span class="value">{{ order.date }}</span>
+        </div>
+        <div class="info-group">
+          <span class="label">TOTAL</span>
+          <span class="value">${{ order.total }}</span>
+        </div>
+        <div class="order-id">
+          <span class="label">ORDER #</span>
+          <span class="value">{{ order.id }}</span>
+        </div>
+      </div>
+
+      <div class="order-body">
+        <div class="item-details">
+          <h3>{{ order.item }}</h3>
+          <span class="status-badge" [attr.data-status]="order.status">
+            {{ order.status }}
+          </span>
+        </div>
+        <button class="view-btn">View order details</button>
+      </div>
+    </div>
+  </div>
+</div>

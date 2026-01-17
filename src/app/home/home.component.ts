@@ -1,6 +1,7 @@
 import { Component,CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { YourAccount } from '../user-profile/your-account/your-account';
 
 import productData from '../../assets/products.json';
 
@@ -9,7 +10,7 @@ import productData from '../../assets/products.json';
 @Component({
   selector: 'app-home',
   standalone:true,
-  imports: [CommonModule, RouterLink, ],
+  imports: [CommonModule ],
    schemas: [CUSTOM_ELEMENTS_SCHEMA], 
   templateUrl: './home.component.html',
   styleUrl: './home.scss'

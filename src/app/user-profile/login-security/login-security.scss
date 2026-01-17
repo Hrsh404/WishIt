@@ -1,0 +1,23 @@
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #007185;
+  padding: 10px 0;
+  
+  &:hover {
+    color: #c45500;
+    text-decoration: underline;
+    
+    svg {
+      transform: translateX(-3px);
+    }
+  }
+
+  svg {
+    transition: transform 0.2s ease;
+  }
+}
