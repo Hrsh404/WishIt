@@ -1,0 +1,69 @@
+.orders-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+
+  header {
+    margin-bottom: 2rem;
+    .back-link {
+      text-decoration: none;
+      color: #007185;
+      font-size: 0.9rem;
+      &:hover { text-decoration: underline; }
+    }
+    h1 { margin-top: 0.5rem; font-size: 1.8rem; }
+  }
+
+  .order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .order-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+
+    .order-header {
+      background-color: #f0f2f2;
+      padding: 1rem;
+      display: flex;
+      gap: 2rem;
+      border-bottom: 1px solid #ddd;
+      font-size: 0.8rem;
+
+      .label { color: #565959; display: block; }
+      .value { color: #111; font-weight: 500; }
+      .order-id { margin-left: auto; text-align: right; }
+    }
+
+    .order-body {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+
+      .status-badge {
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        
+        &[data-status="Delivered"] { background: #e7f4e4; color: #2e7d32; }
+        &[data-status="Shipped"] { background: #fff3e0; color: #ef6c00; }
+      }
+
+      .view-btn {
+        padding: 8px 16px;
+        border: 1px solid #d5d9d9;
+        border-radius: 8px;
+        background: white;
+        cursor: pointer;
+        &:hover { background: #f7fafa; }
+      }
+    }
+  }
+}

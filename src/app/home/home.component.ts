@@ -60,3 +60,4 @@ export class Home implements OnInit {
     this.router.navigate(['/product', productId]);
   }
 }
+}
