@@ -5,9 +5,13 @@
     Kindly Fill Up the Below Form to Make Your Wishes Come True!!
   </h3>
   
-  <form #regForm="ngForm" (ngSubmit)="onSubmit()" class="register-form">
-    <h2>User Registration</h2>
-
+  <form #regForm="ngForm" (ngSubmit)="registerUser()" class="register-form">
+    @If isLoggedIn{
+      <h2>Vendor Registration</h2> 
+    }@else{
+      <h2>User Registration</h2>
+    }
+      
     <div class="form-group">
       <label>First Name</label>
       <input type="text" name="name" [(ngModel)]="user.name" required class="form-control" />
@@ -25,7 +29,53 @@
       <input type="password" name="password" [(ngModel)]="user.password" required minlength="6" class="form-control" />
     </div>
 
-    
+    <div class="form-group" *ngIf="isLoggedIn">
+    <label>
+      <input
+        type="checkbox"
+        [(ngModel)]="isVendor"
+        name="isVendor"
+      />
+      Register as Vendor
+    </label>
+  </div>
+
+  <div *ngIf="isLoggedIn && isVendor">
+
+    <div class="form-group">
+      <label>Business Name</label>
+      <input
+        type="text"
+        name="businessName"
+        [(ngModel)]="user.businessName"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>GST Number</label>
+      <input
+        type="text"
+        name="gstNumber"
+        [(ngModel)]="user.gstNumber"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Business Address</label>
+      <textarea
+        name="businessAddress"
+        [(ngModel)]="user.businessAddress"
+        class="form-control"
+        required
+      ></textarea>
+    </div>
+
+</div>
+
 
     <button type="submit" [disabled]="regForm.invalid" class="btn-submit">Register</button>
   </form>
