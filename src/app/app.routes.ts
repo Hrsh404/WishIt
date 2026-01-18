@@ -11,6 +11,7 @@ import { Vendor } from './vendor/vendor';
 import { YourAccount } from './user-profile/your-account/your-account';
 import { Order } from './user-profile/order/order';
 import { LoginSecurity } from './user-profile/login-security/login-security';
+import { LogoutComponent } from './auth/logout/logout/logout';
 
 
 
@@ -27,7 +28,7 @@ export const routes: Routes = [
     {path:'your-account', component:YourAccount},
     {path:'order', component:Order},
     {path:'loginsecurity', component:LoginSecurity},
-    
+    {path:'logout',component:LogoutComponent}
 ];
 
 
