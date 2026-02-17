@@ -8,6 +8,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { Products } from './products/products';
 import { ProductList } from './products/product-list/product-list';
 import { Vendor } from './vendor/vendor';  
+import { YourAccount } from './user-profile/your-account/your-account';
+import { Order } from './user-profile/order/order';
+import { LoginSecurity } from './user-profile/login-security/login-security';
+import { LogoutComponent } from './auth/logout/logout/logout';
 
 
 
@@ -20,7 +24,11 @@ export const routes: Routes = [
     {path:'cart', component:Cart},
     {path:'profile', component:ProfileComponent},
     {path:'search', component:ProductList},
-    {path:'vendor', component:Vendor}
+    {path:'vendor', component:Vendor},
+    {path:'your-account', component:YourAccount},
+    {path:'order', component:Order},
+    {path:'loginsecurity', component:LoginSecurity},
+    {path:'logout',component:LogoutComponent}
 ];
 
 

@@ -1,34 +1,131 @@
-
-<div class="container">
-  <h3 class="welcome-text">
+<div
+  class="container"
+  [ngClass]="isVendor ? 'container-lg' : 'container-sm'"
+  [ngStyle]="{'max-width': isVendor? '750px':'500px'}"
+>
+  <h3 class="welcome-text text-center mb-4">
     Welcome to <span class="brand">WishIt!!!!!</span> 🎉<br />
     Kindly Fill Up the Below Form to Make Your Wishes Come True!!
   </h3>
-  
-  <form #regForm="ngForm" (ngSubmit)="onSubmit()" class="register-form">
-    <h2>User Registration</h2>
 
-    <div class="form-group">
-      <label>First Name</label>
-      <input type="text" name="name" [(ngModel)]="user.name" required class="form-control" />
+  <form #regForm="ngForm" (ngSubmit)="registerUser()" class="register-form">
+
+    <!-- Heading -->
+    <div *ngIf="isVendor; else userRegistration">
+      <h2 class="text-center mb-4">Vendor Registration</h2>
     </div>
 
-  
-    <div class="form-group">
-      <label>Email</label>
-      <input type="email" name="email" [(ngModel)]="user.email" required class="form-control" />
+    <ng-template #userRegistration>
+      <h2 class="text-center mb-4">User Registration</h2>
+    </ng-template>
+
+    <!-- Vendor Toggle -->
+    <div class="text-center mb-4" *ngIf="isLoggedIn">
+      <label class ="white-label">
+        <input
+          type="checkbox"
+          [(ngModel)]="isVendor"
+          name="isVendor"
+        />
+        Register as Vendor
+      </label>
     </div>
 
+    <!-- Layout -->
+    <div class="row">
 
-    <div class="form-group">
-      <label>Password</label>
-      <input type="password" name="password" [(ngModel)]="user.password" required minlength="6" class="form-control" />
+      <!-- LEFT COLUMN -->
+      <div
+        class="col-12"
+        [ngClass]="isVendor ? 'col-md-6' : 'col-md-12'"
+      >
+
+        <div class="form-group mb-3">
+          <label>First Name</label>
+          <input
+            type="text"
+            name="name"
+            [(ngModel)]="user.name"
+            required
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="user.email"
+            required
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="user.password"
+            required
+            minlength="6"
+            class="form-control"
+          />
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN (Vendor Only) -->
+      <div class="col-md-6" *ngIf="isLoggedIn && isVendor">
+
+        <div class="form-group mb-3">
+          <label>Business Name</label>
+          <input
+            type="text"
+            name="businessName"
+            [(ngModel)]="user.businessName"
+            required
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label>GST Number</label>
+          <input
+            type="text"
+            name="gstNumber"
+            [(ngModel)]="user.gstNumber"
+            required
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label>Business Address</label>
+          <textarea
+            name="businessAddress"
+            [(ngModel)]="user.businessAddress"
+            required
+            rows="3"
+            class="form-control"
+          ></textarea>
+        </div>
+
+      </div>
+
     </div>
 
-    
+    <!-- Submit -->
+    <div class="text-center mt-4">
+      <button
+        type="submit"
+        class="btn btn-primary px-5"
+        [disabled]="regForm.invalid"
+      >
+        Register
+      </button>
+    </div>
 
-    <button type="submit" [disabled]="regForm.invalid" class="btn-submit">Register</button>
   </form>
 </div>
-
-

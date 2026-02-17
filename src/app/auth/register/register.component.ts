@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from '../auth-service';
 @Component({
@@ -9,18 +9,19 @@ import { AuthService } from '../auth-service';
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
   user = {
     name: '',
     email: '',
     password: '',
- 
+    businessName: '',
+    gstNumber: '',
+    businessAddress: '',
   };
+
   constructor(private authService: AuthService) {}
 
-
-
-  onSubmit(){
+  registerUser(){
    this.authService.register(this.user).subscribe({
       next: (res) => {
         console.log('Success:', res);
@@ -31,5 +32,21 @@ export class RegisterComponent {
         alert('Something went wrong.');
       }
     });
+  }
+
+  isLoggedIn = false;
+  loggedInUser:any;
+  isVendor = false;
+
+  ngOnInit():void{
+    this.loggedInUser = this.authService.loggedInUser$.subscribe(user => {
+    this.loggedInUser = user;
+    this.isLoggedIn = !!user;
+    console.log(this.loggedInUser,user);
+    });
+  }
+
+  registerVendor(){
+    
   }
 }
