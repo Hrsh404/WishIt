@@ -1,28 +1,107 @@
-<p>vendor works!</p>
-<div class="vendor-page">
-  <h2>Vendor: Upload Products</h2>
+<div class="page-header">
+  <h1>Vendor Product Management</h1>
+  <p>Upload product images, add pricing, and manage your catalog.</p>
+</div>
 
-  <div *ngFor="let product of products; let i = index" class="product-card">
+<div *ngFor="let product of products; let i = index" class="product-card">
+
+  <div class="product-content">
+
+    <!-- Left Side - Images -->
     <div class="images-container">
+
       <div *ngFor="let img of product.images; let j = index" class="img-box">
-        <input type="file" accept="image/*" (change)="onImageChange(i, j, $event)" placeholder="Upload product image" title="Product Image" />
-        <div class="preview" *ngIf="img">
-          <img [src]="getObjectURL(img)" alt="Product image" />
+
+        <label class="upload-box">
+
+          <input
+            type="file"
+            accept="image/*"
+            (change)="onImageChange(i, j, $event)"
+            hidden
+          />
+
+          <ng-container *ngIf="img; else uploadPlaceholder">
+            <img
+              [src]="getObjectURL(img)"
+              alt="Product image"
+              class="uploaded-image"
+            />
+          </ng-container>
+
+          <ng-template #uploadPlaceholder>
+            <div class="upload-placeholder">
+              <span>+</span>
+              <p>Upload Image</p>
+            </div>
+          </ng-template>
+
+        </label>
+
+      </div>
+
+    </div>
+
+    <!-- Right Side - Product Details -->
+    <div class="details-panel-outer">
+    <div class="details-panel">
+      <div class="fields">
+        <label>Product Name:</label>
+        <input
+          type="text"
+          [(ngModel)]="product.name"
+          placeholder="Product name"
+        />
+        <div class="num-fields">
+          <div class="field-group">
+            <label>Price:</label>
+            <input
+              type="number"
+              [(ngModel)]="product.price"
+              placeholder="0.00"
+            />
+          </div>
+
+          <div class="field-group">
+            <label>Quantity:</label>
+            <input
+              type="number"
+              [(ngModel)]="product.stockQuantity"
+              placeholder="0"
+            />
+          </div>
         </div>
+        <label>Category:</label>
+        <select [(ngModel)]="product.categoryId" class="fields">
+          <option [ngValue]="null">Select Category</option>
+
+          <option
+            *ngFor="let category of categories"
+            [ngValue]="category.id">
+            {{ category.name }}
+          </option>
+        </select>
+        <label>Description:</label>
+        <textarea
+          rows="3"
+          [(ngModel)]="product.description">
+        </textarea>
       </div>
     </div>
+      <button
+        class="remove-btn details-panel"
+        (click)="removeProduct(i)"
+        *ngIf="products.length > 1">
+        Remove Product
+      </button>
 
-    <div class="fields">
-      <label>Price:</label>
-      <input type="number" [(ngModel)]="product.price" placeholder="Enter product price" title="Product Price" />
-
-      <label>Description:</label>
-      <textarea rows="3" [(ngModel)]="product.description" ></textarea>
     </div>
-
-    <button (click)="removeProduct(i)" *ngIf="products.length > 1">Remove Product</button>
+    
   </div>
 
-  <button (click)="addProduct()">Add Another Product</button>
-  <button (click)="upload()">Submit</button>
+</div>
+
+<div class="action-buttons mb-3">
+  <button (click)="addProduct()">➕ Add Another Product</button>
+  <button (click)="upload()">🚀 Submit Products</button>
 </div>

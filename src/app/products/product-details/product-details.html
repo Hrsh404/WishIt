@@ -1,0 +1,112 @@
+@if(product){
+
+<div class="product-container">
+
+  <!-- Left Section -->
+  <div class="image-section">
+
+    <div
+      id="productCarousel"
+      class="carousel slide"
+      data-bs-ride="carousel"
+      data-bs-interval="3000">
+
+      <div class="carousel-inner">
+
+        @for(image of product.images; track image.imageId; let i = $index){
+
+          <div
+            class="carousel-item"
+            [class.active]="i === 0">
+
+            <img
+              [src]="image.imageUrl"
+              class="main-image"
+              [alt]="product.name">
+
+          </div>
+
+        }
+
+      </div>
+
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#productCarousel"
+        data-bs-slide="prev">
+
+        <span class="carousel-control-prev-icon"></span>
+
+      </button>
+
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#productCarousel"
+        data-bs-slide="next">
+
+        <span class="carousel-control-next-icon"></span>
+
+      </button>
+
+    </div>
+
+    <!-- Thumbnails -->
+    <div class="thumbnail-container">
+
+      @for(image of product.images; track image.imageId){
+
+        <img
+          class="thumbnail"
+          [src]="image.imageUrl">
+
+      }
+
+    </div>
+
+  </div>
+
+  <!-- Right Section -->
+  <div class="info-section">
+
+    <h1>{{ product.name }}</h1>
+
+    <div class="rating">
+      ⭐⭐⭐⭐⭐ (4.8)
+    </div>
+
+    <h2 class="price">
+      ₹{{ product.price }}
+    </h2>
+
+    <div class="stock">
+      In Stock: {{ product.stockQuantity }}
+    </div>
+
+    <p class="description">
+      {{ product.description }}
+    </p>
+
+    <div class="button-group">
+      <button
+        class="btn btn-success btn-lg"
+        (click)="addToCart()">
+        🛒 Add To Cart
+      </button>
+
+      <button
+        class="btn btn-warning btn-lg">
+        Buy Now
+      </button>
+    </div>
+    <button
+        class="btn btn-outline-primary btn-lg mt-2"
+        (click)="viewMoreProducts()">
+        ← View More Products
+    </button>
+  </div>
+
+</div>
+
+}
